@@ -65,7 +65,6 @@ const Fixture = () => {
                                                 </div>
                                             </li>
                                         }
-
                                     })}
                                 </ul>
                             </div>
