@@ -1,0 +1,74 @@
+.login-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    margin: 2rem 2rem;
+
+}
+
+.login-form .login-form-wrapper {
+    background-color: #f5ebe0;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    width: 40rem;
+
+}
+
+.login-form .login-form-wrapper .items .header {
+    padding: 1rem 1rem;
+    text-align: center;
+
+}
+.login-form .login-form-wrapper .items .header .title{
+    padding: 1rem 1rem ;
+}
+.login-form .login-form-wrapper .items .header .title h3 {
+
+    color: #37003c;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    cursor: pointer;
+}
+
+.login-form .login-form-wrapper .items .header .title h3:hover {
+
+    text-decoration: underline;
+}
+
+.login-form .login-form-wrapper .items  form {
+padding: 0.5rem 0.5rem;
+margin-left: 2rem;
+}
+.login-form .login-form-wrapper .items  form .input-login div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+.login-form .login-form-wrapper .items  form .input-login label {
+    color: #37003c;
+    font-size: 1rem;
+}
+
+.login-form .login-form-wrapper .items  form .input-login input {
+    width: 85%;
+    height: 3rem;
+    border-radius: 10px;
+    padding: 0.5rem 0.5rem;
+
+}
+
+.button-login {
+    border-radius: 10px;
+    padding: 0.5rem 0.5rem;
+    color: #37003c;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.button-login:hover {
+    background: linear-gradient(98.5deg, #05f0ff -46.16%, #7367ff 42.64%, #963cff 70.3%);
+    color: #fff;
+}

@@ -1,0 +1,160 @@
+#fixtures .header {
+    min-height: 10rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(86.88deg,
+            #7d6aff 1.38%,
+            #ffb86c 64.35%,
+            #fc2872 119.91%);
+    background-size: cover;
+    padding: 0 0.8rem;
+    overflow: hidden;
+    border-bottom: 0.1rem solid #fff;
+    padding-bottom: 0;
+    margin: 0 0 3rem;
+    font-size: 0;
+}
+
+#fixtures .header .wrapper .title {
+
+    font-size: 3rem;
+    font-weight: 600;
+    color: #fff;
+
+}
+
+#fixtures .fixtures-full-list {
+    max-width: 1376px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-date-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-date-container span {
+    font-size: 1.2rem;
+    color: #37003c;
+    font-weight: 700;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-date-container .fixtures-date-image {
+    width: 200px;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-date-container .fixtures-date-image img {
+    width: auto;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid #f5f2f5;
+    cursor: pointer;
+    padding: 0 1.6rem;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture:hover {
+    background: linear-gradient(98.5deg, #05f0ff -46.16%, #7367ff 42.64%, #963cff 70.3%);
+    color: #fff;
+
+
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .home span {
+    width: 10rem;
+    font-size: 0.8rem;
+    text-align: right;
+    color: #37003c;
+
+}
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture:hover .match-detail .home span {
+    color: #fff;
+
+
+}
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .home .home-img {
+    width: 40px;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .home .home-img img {
+    width: auto;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .timer {
+    padding: 1rem 1rem;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .timer span {
+    background: transparent;
+    font-size: 0.9rem;
+    width: 5.2rem;
+    border: 0.1rem solid #ebe5eb;
+    border-radius: 10px;
+    padding: 0.3rem 0.3rem;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .away {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .away span {
+    width: 10rem;
+    font-size: 0.8rem;
+    text-align: left;
+    color: #37003c;
+}
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture:hover .match-detail .away span {
+    color: #fff;
+
+}
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .away .away-img {
+    width: 40px;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .away .away-img img {
+    width: auto;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-stadium {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-stadium span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    width:18.75rem;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}

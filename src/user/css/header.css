@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&family=Nunito:wght@200;300;400;500;600&display=swap');
+
+/* ===Css HTML=== */
+:root {
+    --main-color: #37003c;
+    --black: #333;
+    --white: #fff;
+    --light-color: #666;
+    --border: .2rem solid var(--black);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+* {
+    font-family: PremierSans-Heavy, Arial, Helvetica Neue, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #37003c;
+    color: #fff;
+    gap: 3px;
+    position: relative;
+}
+
+#header .logo a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+#header .logo a img {
+    width: 70px;
+    /* background-color: #fff; */
+    border-radius: 50%;
+    padding: 0.2rem 0.2rem;
+
+}
+
+#header .logo:hover a span {
+    color: #fff;
+}
+
+#header .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+#header .navigation li {
+    padding: 1rem 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+#header .navigation li:hover .link {
+    text-decoration: underline;
+    color: #fff;
+
+}
+
+#header .nav-responsive ul li:hover .link {
+    text-decoration: underline;
+    color: #fff;
+
+}
+
+#header .nav-responsive ul li {
+    border-bottom: #ececec solid thin;
+
+}
+
+#header .nav-responsive ul li:last-child {
+    border-bottom: none;
+
+}
+
+/* #header .nav-responsive {
+ display: none;
+
+} */
+
+
+.button {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #37003c;
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #ececec;
+    opacity: 0.9;
+}
+
+#icon-menu-bars {
+    display: none;
+    cursor: pointer;
+}
+
+#icon-menu-bars:hover {
+    transform: scale(1.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+@media (min-width:1200px) {
+
+    #header .nav-responsive {
+        display: none;
+
+    }
+}
+
+@media (max-width:980px) {
+
+
+    #header .navigation {
+        display: none;
+    }
+
+    #header .search-header {
+        display: none;
+    }
+
+    #icon-menu-bars {
+        display: block;
+        float: right;
+    }
+}
+
+@media (max-width:450px) {}

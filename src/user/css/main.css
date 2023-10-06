@@ -1,0 +1,398 @@
+/* Home */
+
+#home {
+    display: flex;
+    justify-content: space-between;
+    background-color: #dad7cd;
+    padding: 0.5rem 0.5rem;
+    min-height: 31rem;
+    align-items: flex-start;
+
+}
+
+#home .home-clubs {
+    background-color: #37003c;
+    border-radius: 10px;
+    flex-basis: 20%;
+}
+
+#home .home-clubs .title-1,
+.title-2 {
+    color: #fff;
+    font-weight: 600;
+    padding: 1rem 1rem;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    border-bottom: #666 solid thin;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#home .home-clubs .title-1:hover span,
+.title-2:hover span {
+    text-decoration: underline;
+}
+
+#home .home-clubs .list-clubs li {
+    padding: 1rem 1rem;
+    display: flex;
+    color: #fff;
+    gap: 20px;
+    flex-basis: auto;
+    list-style: none;
+
+}
+
+#home .home-clubs .list-clubs li .logo {
+    width: 30px;
+    flex-basis: 20%;
+}
+
+#home .home-clubs .list-clubs li .name {
+    width: 30px;
+    flex-basis: 80%;
+    padding: 0.5rem 0.5rem;
+    font-weight: 600;
+}
+
+
+#home .home-clubs .list-clubs li .name span {
+    font-size: 0.8rem;
+}
+
+#home .home-main {
+    flex-basis: 55%;
+    background-color: #37003c;
+    margin: 0px 1rem;
+    border-radius: 10px;
+    min-height: 32rem;
+
+}
+
+#home .home-main .banner {
+    padding: 1rem 1rem;
+
+}
+
+#home .home-main .banner .banner-image {
+    text-align: center;
+
+}
+
+#home .home-main .banner .banner-image img {
+    width: 60rem;
+    height: 10rem;
+    display: inline-block;
+    margin: 0px auto;
+}
+
+#home .home-main .main .event-action {
+    display: flex;
+    justify-content: space-between;
+}
+
+#home .home-main .main .event-action .items-action {
+    display: flex;
+    color: #fff;
+    padding: 0.1rem 1rem 0.6rem 1rem;
+    gap: 10px;
+}
+
+#home .home-main .main .event-action .items-action li {
+    background: #ef233c;
+    border-radius: 10px;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    cursor: pointer;
+}
+
+#home .home-main .main .event-action .items-action li:hover {
+    opacity: 0.9;
+}
+
+
+#home .home-main .main .event-action .items-action li span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#home .home-main .main .event-action .week {
+    padding: 0.2rem 1rem 0.2rem 0.5rem;
+
+}
+
+#home .home-main .main .event-action .week .week-content {
+    background: linear-gradient(86.88deg,
+            #7d6aff 1.38%,
+            #ffb86c 64.35%,
+            #fc2872 119.91%);
+    border-radius: 10px;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    cursor: pointer;
+}
+
+#home .home-main .main .event-action .week .week-content span {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#home .home-main .main .matches {
+    margin: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#home .home-main .main .matches .matches-items {
+    padding: 1rem 1rem;
+    background-color: #f8edeb;
+    border-radius: 10px;
+    padding: 0.5rem 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+    box-shadow: #7d6aff -3px 3px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#home .home-main .main .matches .matches-items:hover {
+    background: linear-gradient(98.5deg, #05f0ff -46.16%, #7367ff 42.64%, #963cff 70.3%);
+    color: #fff;
+    transition: 0.2s all ease-in-out;
+}
+
+#home .home-main .main .matches .matches-items:hover  .info .info-homeclub .name span {
+    color: #fff;
+}
+#home .home-main .main .matches .matches-items:hover  .info .info-awayclub .name span {
+    color: #fff;
+}
+
+
+#home .home-main .main .matches .matches-items .feature {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+}
+
+#home .home-main .main .matches .matches-items .feature .icon {
+    font-size: 1rem;
+}
+
+#home .home-main .main .matches .matches-items .feature .time {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ef233c;
+}
+
+#home .home-main .main .matches .matches-items .info {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+}
+
+#home .home-main .main .matches .matches-items .info .info-homeclub {
+    font-weight: 500;
+    color: #37003c;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+}
+
+#home .home-main .main .matches .matches-items .info .info-homeclub .name {
+    width: 40px;
+
+}
+
+#home .home-main .main .matches .matches-items .info .info-homeclub .name span {
+    font-size: 1.2rem;
+    font-weight: 600;
+
+}
+
+#home .home-main .main .matches .matches-items .info .info-homeclub .logo {
+    width: 40px;
+}
+
+#home .home-main .main .matches .matches-items .info .info-homeclub .logo img {
+    width: auto;
+}
+
+#home .home-main .main .matches .matches-items .info .statistic {
+    font-size: 40px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+
+
+}
+
+#home .home-main .main .matches .matches-items .info .statistic .score {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    border: 0.1rem solid #37003c;
+    border-radius: 10px;
+    padding: 0rem 1rem 0rem 1rem;
+
+}
+
+#home .home-main .main .matches .matches-items .info .info-awayclub {
+    font-size: 20px;
+    font-weight: 500;
+    color: #37003c;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#home .home-main .main .matches .matches-items .info .info-awayclub .name {
+    width: 40px;
+
+}
+
+#home .home-main .main .matches .matches-items .info .info-awayclub .name span {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#home .home-main .main .matches .matches-items .info .info-awayclub .logo {
+    width: 40px;
+}
+
+#home .home-main .main .matches .matches-items .info .info-awayclub .logo img {
+    width: auto;
+}
+
+#home .home-main .main .matches .matches-items .detail {
+    font-size: 20px;
+    align-items: center;
+    display: flex;
+}
+
+#home .home-posts {
+    flex-basis: 30%;
+    background-color: #37003c;
+    border-radius: 10px;
+    min-height: 32rem;
+}
+
+#home .home-posts .trending-new {
+    flex-basis: 25%;
+}
+
+#home .home-posts .trending-new .title-trending-new {
+    display: flex;
+    gap: 13px;
+    padding: 1rem 1rem;
+
+}
+
+
+#home .home-posts .trending-new .title-trending-new span {
+    color: #fff;
+}
+
+#home .home-posts .trending-new .title-trending-new img {
+    width: 20px;
+}
+
+#home .home-posts .trending-new .post-trending-new image {
+    width: 20px;
+}
+
+#home .home-posts .trending-new .post-trending-new .title {
+    padding: 0.5rem 0.5rem 0rem 0.5rem;
+    line-height: 0.9;
+}
+
+#home .home-posts .trending-new .post-trending-new .title span {
+    color: #fff;
+    font-size: 0.6rem;
+
+}
+
+#home .home-posts .trending-new .post-trending-new .created_at {
+    padding: 0rem 0.5rem 0.5rem 0.5rem;
+}
+
+#home .home-posts .trending-new .post-trending-new .created_at span {
+    color: #fff;
+    font-size: 0.5rem;
+
+}
+
+#home .list-post {
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#home .list-post .item {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+
+}
+
+#home .list-post .item .thumbnail {
+    width: 100%;
+    align-items: center;
+}
+
+#home .list-post .item .thumbnail img {
+    width: auto;
+    border-radius: 10px;
+}
+#home .list-post .item .content{
+    padding: 0.5rem 0.5rem 0.6rem 0.4rem ;
+}
+#home .list-post .item .content .title {
+    width: 200px;
+    overflow: hidden;
+    max-height: 50px;
+    text-overflow: ellipsis;
+    padding: 0.2rem 0.2rem;
+}
+
+#home .list-post .item .content .title p {
+    font-size: 0.5rem;
+
+}
+
+#home .list-post .item .content .created_at {
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.4rem;
+}
+
+#home .list-post .item .content .created_at span {
+    font-size: 0.5rem;
+}
+
+@media (max-width:980px) {
+
+    #home .list-clubs li {
+        display: block;
+        text-align: center;
+    }
+
+
+    #home .list-clubs li .name {
+        display: none;
+    }
+
+    #home .list-clubs li .logo {
+        width: 50px;
+        margin: 0px auto;
+    }
+
+
+}
