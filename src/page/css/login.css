@@ -18,8 +18,9 @@
 
 .login-form .login-form-wrapper .items .header {
     padding: 1rem 1rem;
+}
+.login-form .login-form-wrapper .items .header .image{
     text-align: center;
-
 }
 .login-form .login-form-wrapper .items .header .title{
     padding: 1rem 1rem ;

@@ -2,11 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import useActionDelete from '../useActionDelete';
 import useActionPutActiveStadium from './useActionPutActiveStadium';
+import useActionCheckRef from './useActionCheckRef';
 
 const useActionList = (api) => {
 
+    
     const GetList = async (api, next) => {
-        // /api/stadiums/all
         try {
             const response = await axios.get(`${api}?page=${next}`, {});
             if (response.data) {
@@ -19,13 +20,12 @@ const useActionList = (api) => {
         }
     }
     const GetTotalPage = async (api) => {
-        // /api/stadiums/all
         try {
             const response = await axios.get(`${api}/totalPage`, {});
             if (response.data) {
                 return response.data;
             } else {
-                return [];
+                return 1;
             }
         } catch (error) {
             console.error(error);
@@ -41,6 +41,7 @@ const useActionList = (api) => {
     // }
     const { GetApiDelete } = useActionDelete("/api/clubs")
 
+    const { getCheckClubsExist , getCheckPlayerExist } = useActionCheckRef()
 
     const [listContent, setlistContent] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -63,12 +64,18 @@ const useActionList = (api) => {
     const handleDeleteClubs = async (id, stadiumID) => {
         const confirmed = window.confirm('Are you sure within your option ');
 
+        const value = await getCheckClubsExist("/api/clubs/check/", id);
+        const valuePlayer = await getCheckPlayerExist("/api/clubs/check/player/", id);
+
         if (confirmed) {
-            await GetApiDelete(id);
-            const newList = listContent.filter((items) => items.id !== id)
-            setlistContent(newList);
-            handleApiUpdateActive("/api/stadiums/activereset", stadiumID.id);
-            // console.log(stadiumID.id)
+            if (value === true || valuePlayer === true) {
+                alert('The clubs is active');
+            } else {
+                await GetApiDelete(id);
+                const newList = listContent.filter((items) => items.id !== id)
+                setlistContent(newList);
+                handleApiUpdateActive("/api/stadiums/activereset", stadiumID.id);
+            }
         }
     }
 

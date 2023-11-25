@@ -36,46 +36,54 @@
     gap: 30px;
 }
 
-#news .body .list-post li {
+#news .body .list-post li a {
     cursor: pointer;
 }
 
-#news .body .list-post li .post-items {
+#news .body .list-post li a .post-items {
     display: flex;
     gap: 30px;
 }
 
-#news .body .list-post li:hover .post-items .content .title span {
+#news .body .list-post li:hover a .post-items .content .title span {
     text-decoration: underline;
 }
 
-#news .body .list-post li:hover .post-items .image img {
+#news .body .list-post li:hover  a .post-items .image img {
     transform: scale(1.1);
     transition: transform .25s ease;
 }
 
-#news .body .list-post li .post-items .image {
+#news .body .list-post li a .post-items .image {
     border-radius: 0.8rem;
     overflow: hidden;
     z-index: 0;
+    width: 24rem;
 }
 
-#news .body .list-post li .post-items .image img {
+#news .body .list-post li a .post-items .image img {
 
     display: block;
     object-fit: cover;
 }
 
-#news .body .list-post li .post-items .image img {
+#news .body .list-post li a .post-items .image img {
     width: auto;
 }
 
-#news .body .list-post li .post-items .content {
+#news .body .list-post li a .post-items .content {
     padding: 0.5rem 0.5rem 0.5rem 0rem;
     max-width: 50%;
 }
 
-#news .body .list-post li .post-items .content .title span {
+#news .body .list-post li a .post-items .content .time span {
+    color: #37003c;
+    font-size: 0.9rem;
+
+}
+
+
+#news .body .list-post li a .post-items .content .title span {
     color: #37003c;
     letter-spacing: -.4px;
     margin: 0.4rem 0;
@@ -85,4 +93,8 @@
     max-height: 11.88rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+}
+
+#news .body .list-post li a .post-items .content .decription p {
+    color: #37003c;
 }

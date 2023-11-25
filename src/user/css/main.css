@@ -35,7 +35,7 @@
 }
 
 #home .home-clubs .list-clubs li {
-    padding: 1rem 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
     display: flex;
     color: #fff;
     gap: 20px;
@@ -52,7 +52,7 @@
 #home .home-clubs .list-clubs li .name {
     width: 30px;
     flex-basis: 80%;
-    padding: 0.5rem 0.5rem;
+    padding: 0rem 0.5rem 0.5rem 0.5rem;
     font-weight: 600;
 }
 
@@ -163,19 +163,17 @@
     transition: 0.2s all ease-in-out;
 }
 
-#home .home-main .main .matches .matches-items:hover  .info .info-homeclub .name span {
+#home .home-main .main .matches .matches-items:hover .info .info-homeclub .name span {
     color: #fff;
 }
-#home .home-main .main .matches .matches-items:hover  .info .info-awayclub .name span {
+
+#home .home-main .main .matches .matches-items:hover .info .info-awayclub .name span {
     color: #fff;
 }
 
 
 #home .home-main .main .matches .matches-items .feature {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: center;
+    position: relative;
 }
 
 #home .home-main .main .matches .matches-items .feature .icon {
@@ -186,6 +184,8 @@
     font-size: 1.2rem;
     font-weight: 600;
     color: #ef233c;
+    width: 80px;
+
 }
 
 #home .home-main .main .matches .matches-items .info {
@@ -238,7 +238,17 @@
     align-items: center;
     border: 0.1rem solid #37003c;
     border-radius: 10px;
-    padding: 0rem 1rem 0rem 1rem;
+    padding: 0.1rem 1rem 0.1rem 1rem;
+
+}
+
+#home .home-main .main .matches .matches-items .info .statistic .time {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    border: 0.1rem solid #37003c;
+    border-radius: 10px;
+    padding: 0.1rem 1rem 0.1rem 1rem;
 
 }
 
@@ -274,7 +284,6 @@
     align-items: center;
     display: flex;
 }
-
 #home .home-posts {
     flex-basis: 30%;
     background-color: #37003c;
@@ -334,26 +343,38 @@
     gap: 20px;
 }
 
-#home .list-post .item {
+#home .list-post .item a {
     display: flex;
     justify-content: space-between;
     color: #fff;
 
 }
 
-#home .list-post .item .thumbnail {
+#home .list-post .item a .thumbnail {
     width: 100%;
     align-items: center;
+    overflow: hidden;
+    z-index: 0;
+    border-radius: 0.8rem;
+
 }
 
-#home .list-post .item .thumbnail img {
+#home .list-post .item:hover .thumbnail img {
     width: auto;
     border-radius: 10px;
+    transform: scale(1.1);
+    transition: transform .25s ease;
+    display: block;
+    object-fit: cover;
+    cursor: pointer;
+
 }
-#home .list-post .item .content{
-    padding: 0.5rem 0.5rem 0.6rem 0.4rem ;
+
+#home .list-post .item a .content {
+    padding: 0.5rem 0.5rem 0.6rem 0.4rem;
 }
-#home .list-post .item .content .title {
+
+#home .list-post .item a .content .title {
     width: 200px;
     overflow: hidden;
     max-height: 50px;
@@ -361,19 +382,19 @@
     padding: 0.2rem 0.2rem;
 }
 
-#home .list-post .item .content .title p {
+#home .list-post .item a .content .title p {
     font-size: 0.5rem;
 
 }
 
-#home .list-post .item .content .created_at {
+#home .list-post .item a .content .created_at {
     display: inline-block;
     display: flex;
     align-items: center;
     padding: 0.4rem 0.4rem;
 }
 
-#home .list-post .item .content .created_at span {
+#home .list-post .item a .content .created_at span {
     font-size: 0.5rem;
 }
 

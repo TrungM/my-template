@@ -34,9 +34,6 @@ const useActionListActive = (api) => {
 
         })
         setNew2(newArray)
-
-
-
     }
 
     useEffect(() => {

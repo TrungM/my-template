@@ -117,6 +117,8 @@ const EditStadiums = () => {
         },
         validationSchema: Yup.object({
             name: Yup.string().max(200, "Must be 200 chacracter or less").required("Required"),
+            address: Yup.string().required("Required"),
+            image: Yup.string().required("Required"),
         }),
 
 
@@ -168,13 +170,8 @@ const EditStadiums = () => {
                                     <div className="card-header">
                                         <h3 className="card-title">Edits the Information of the  {NameStadiumstate}</h3>
                                     </div>
-
-
-
                                     <form onSubmit={formik.handleSubmit}>
-
                                         <div className="card-body">
-
                                             <div className="form-group">
                                                 <label htmlFor="name">Name</label>
                                                 <input type="text" className="form-control" name='name' id="stadium_name" placeholder="Enter new stadium" value={formik.values.name} onChange={formik.handleChange} />
@@ -182,7 +179,7 @@ const EditStadiums = () => {
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="description">Description</label>
-                                                <textarea class="form-control" rows="3" name='description' id="stadium_description" placeholder="Enter new description"   value={formik.values.description} onChange={formik.handleChange}></textarea>
+                                                <textarea className="form-control" rows="3" name='description' id="stadium_description" placeholder="Enter new description"   value={formik.values.description} onChange={formik.handleChange}></textarea>
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="capacity">Capacity</label>
@@ -191,6 +188,7 @@ const EditStadiums = () => {
                                             <div className="form-group">
                                                 <label htmlFor="address">Address</label>
                                                 <input type="text" className="form-control" name='address' id="stadium_address" placeholder="Enter new address"    value={formik.values.address} onChange={formik.handleChange} />
+                                                {formik.touched.address === true && formik.errors.address ? <small className='text-red-500 font-medium text-base' >{formik.errors.address}</small> : null}
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="pitchSize">Pitch Size</label>

@@ -23,7 +23,7 @@ const useActionListUI = () => {
     handleGetList.current = async () => {
         setLoading(true);
         const c_list = await GetListTable();
-            setlistContent(c_list);
+        setlistContent(c_list);
         setLoading(false);
 
     }

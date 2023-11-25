@@ -5,11 +5,13 @@ import { useSideBar } from '../../context/showSideBarContext';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import LayoutAdmin from '../LayoutAdmin';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CreateSeason = () => {
     const { showfull } = useSideBar();
 
     const { handleCreate } = useActionPost();
+    const history = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -28,24 +30,16 @@ const CreateSeason = () => {
                 setTimeout(() => {
                     actions.resetForm({
                         seasonname: ""
-
                     });
                     actions.setSubmitting(false);
                 }, 1000);
+                history('/admin/managenment-season');
             } else {
                 actions.setSubmitting(false);
             }
 
         },
     });
-
-
-
-
-
-
-
-
 
     useEffect(() => {
         document.title = "Create a new season"

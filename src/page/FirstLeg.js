@@ -40,11 +40,11 @@ const FirstLeg = () => {
     const [getID, setID] = useState();
 
     const { countLeg,
-        setcountLeg } = useActionCountLeg("/api/match/countLeg", 'first',parseInt(id))
+        setcountLeg } = useActionCountLeg("/api/match/countLeg", 'first', parseInt(id))
 
     const { listContentClubActive } = useActionListFullRanking("/api/table/list");
     const { handleCreate } = useActionPost();
-    const { listContent, loading } = useActionListLeg("/api/match/listLeg", 'first',parseInt(id))
+    const { listContent, loading } = useActionListLeg("/api/match/listLeg", 'first', parseInt(id))
 
     useEffect(() => {
         setID(id);
@@ -59,13 +59,16 @@ const FirstLeg = () => {
                         <div className="row mb-2">
                             <div className="col-sm-6">
                                 <h1>List Matches</h1>
-                                <Link to={`/admin/schedules/${getID}`}><button type="button" className="btn btn-primary mt-2 mr-2 ml-2" >Match</button>
-                                </Link>                                
-                                <Link to={`/admin/schedules/first/${getID}`}><button type="button" className="btn btn-primary mt-2 mr-2 ml-2" >The first leg</button>
-                                </Link>
-                                <Link to={`/admin/schedules/return/${getID}`}><button type="button" className="btn btn-primary mt-2" >The return leg</button>
-                                </Link>
-
+                                <div className='flex gap-5'>
+                                    <Link to={`/admin/schedules/${getID}`}><button type="button" className="btn btn-primary" >Match</button>
+                                    </Link>
+                                    <Link to={`/admin/schedules/first/${getID}`}><button type="button" className="btn btn-primary" >The first</button>
+                                    </Link>
+                                    <Link to={`/admin/schedules/return/${getID}`}><button type="button" className="btn btn-primary" >The return</button>
+                                    </Link>
+                                    <Link to={`/admin/schedules/homepage/${getID}`}><button type="button" className="btn btn-primary" >Homepage</button>
+                                    </Link>
+                                </div>
                             </div>
                             <div className="col-sm-6">
                                 <ol className="breadcrumb float-sm-right">
@@ -83,7 +86,7 @@ const FirstLeg = () => {
                                 <div className="card">
                                     <div className="card-header flex justify-between">
                                         <h3 className="card-title"> <span>The first leg list </span> matches of the season</h3>
-                                        <h3 className="card-title translate-x-56"> <span>{countLeg==0 ? 0 : countLeg}</span>/380 matches</h3>
+                                        <h3 className="card-title translate-x-56"> <span>{countLeg == 0 ? 0 : countLeg}</span>/380 matches</h3>
 
                                     </div>
                                     <div className='flex justify-center'>
@@ -98,6 +101,7 @@ const FirstLeg = () => {
                                                     <th>Name_Away</th>
                                                     <th>Logo_Away</th>
                                                     <th>Update</th>
+                                                    <th>Home</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -109,6 +113,14 @@ const FirstLeg = () => {
                                                         <td>{items.clubAway.clubName.name}</td>
                                                         <td style={{ width: "10%" }}><img src={items.clubAway.clubName.image} alt="" width="100%" /> </td>
                                                         <td> <Link to={`/admin/edit-match/${items.id}`}><button type="button" className="btn btn-outline-success">Update</button></Link>
+                                                        </td>
+                                                        <td>
+                                                            {
+                                                                items.isHome === 1 && items.matchDay !== null && items.matchTime !== null  ?
+                                                                    <span className="btn btn-outline-warning">Display</span>
+                                                                    :
+                                                                    <span className="btn btn-outline-warning">Hide</span>
+                                                            }
                                                         </td>
                                                     </tr>
 
@@ -122,6 +134,7 @@ const FirstLeg = () => {
                                                     <th>Name_Away</th>
                                                     <th>Logo_Away</th>
                                                     <th>Update</th>
+                                                    <th>Home</th>
                                                 </tr>
                                             </tfoot>
                                         </table>

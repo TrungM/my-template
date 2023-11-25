@@ -40,9 +40,6 @@ const useActionListFullRanking = (api) => {
         // })
         // // console.log(newArray)
         // setNew2(newArray)
-
-
-
     }
 
     useEffect(() => {

@@ -35,6 +35,7 @@ const useActionPut = (formik) => {
     const [NameClubstate, setNameClubstate] = useState("");
     const [IdClubstate, setIDClubsstate] = useState(0);
     const [NameStadiumstate, setNameStadiumstate] = useState("");
+    const [IdStadiumstate, setIdStadiumstate] = useState(0);
     const { handleApiUpdateImage } = useUpdateImageClubs();
     const handleGeItemsStadium = useRef({});
     handleGeItemsStadium.current = async (codeClub) => {
@@ -48,9 +49,9 @@ const useActionPut = (formik) => {
         formik.setFieldValue("image", s_items.image)
         formik.setFieldValue("stadiumid", s_items.stadiumid.id)
         setNameStadiumstate(s_items.stadiumid.name)
+        setIdStadiumstate(s_items.stadiumid.id)
 
 
-        // console.log(s_items.image)
     }
 
     // console.log(NameStadiumstate)
@@ -96,9 +97,6 @@ const useActionPut = (formik) => {
 
     }
 
-    const handleChangeSelect = (e) => {
-        formik.setFieldValue("stadiumid", e.target.value)
-    }
 
     const handleUploadImage = (file) => {
 
@@ -152,8 +150,7 @@ const useActionPut = (formik) => {
         code,
         id,
         NameStadiumstate,
-        handleChangeSelect,
-
+        IdStadiumstate
 
     }
 };

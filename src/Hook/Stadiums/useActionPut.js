@@ -38,13 +38,13 @@ const {handleApiUpdateImage}=useUpdateImageStadium();
         setNameStadiumstate(s_items.name)
         setIDtadiumstate(s_items.id);
         formik.setFieldValue("name", s_items.name)
-        formik.setFieldValue("capacity", s_items.capacity)
-        formik.setFieldValue("address", s_items.address)
-        formik.setFieldValue("pitchSize", s_items.pitchSize)
-        formik.setFieldValue("description", s_items.description)
+        formik.setFieldValue("capacity", s_items.capacity ?? "")
+        formik.setFieldValue("address", s_items.address ?? "")
+        formik.setFieldValue("pitchSize", s_items.pitchSize ?? "")
+        formik.setFieldValue("description", s_items.description ?? "")
 
         formik.setFieldValue("image", s_items.image)
-        formik.setFieldValue("active", 1)
+        formik.setFieldValue("active", s_items.active)
 
     }
 

@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { useSideBar } from '../context/showSideBarContext';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import useLoginAdmin from '../Hook/Login/useLoginAdmin';
 const dataSideBar = [
     {
         id: 7,
@@ -11,7 +10,6 @@ const dataSideBar = [
         parent: 0,
 
     },
-
 
     {
         id: 1,
@@ -51,13 +49,13 @@ const dataSideBar = [
         id: 5,
         title: "Add New Stadiums ",
         q_itemsItems: 1,
-        link_values: "/add-new-stadium",
+        link_values: "/add-new-stadiums",
         parent: 4,
 
     },
     {
         id: 6,
-        title: "List Stadium ",
+        title: "List Stadiums ",
         q_itemsItems: 1,
         link_values: "/list-stadiums",
         parent: 4,
@@ -83,31 +81,96 @@ const dataSideBar = [
     },
     {
         id: 10,
-        title: "Layout",
+        title: "News",
         q_itemsItems: 1,
-        link_values: "/layout",
+        link_values: "/",
         parent: 0,
-
     },
 
     {
         id: 12,
-        title: "Season",
+        title: "Add News",
         q_itemsItems: 1,
-        link_values: "/ui/season",
+        link_values: "/add-news",
         parent: 10,
     },
 
     {
         id: 11,
-        title: "Tables",
+        title: "Player",
         q_itemsItems: 1,
-        link_values: "/tables",
+        link_values: "/",
+        parent: 0,
+    },
+
+    {
+        id: 13,
+        title: "Season",
+        q_itemsItems: 1,
+        link_values: "/ui/season",
+        parent: 15,
+    },
+
+    {
+        id: 14,
+        title: "List News",
+        q_itemsItems: 1,
+        link_values: "/list-news",
         parent: 10,
+    },
+    {
+        id: 15,
+        title: "Layout",
+        q_itemsItems: 1,
+        link_values: "/layout",
+        parent: 0,
+    },
+
+    {
+        id: 16,
+        title: "Add Player",
+        q_itemsItems: 1,
+        link_values: "/add-new-players",
+        parent: 11,
+    },
+    {
+        id: 17,
+        title: "List Player",
+        q_itemsItems: 1,
+        link_values: "/list-players",
+        parent: 11,
+    },
+    {
+        id: 18,
+        title: "List Position",
+        q_itemsItems: 1,
+        link_values: "/list-positions",
+        parent: 11,
+    },
+    {
+        id: 19,
+        title: "List Flag",
+        q_itemsItems: 1,
+        link_values: "/list-flags",
+        parent: 11,
+    },
+    {
+        id: 20,
+        title: "Referees",
+        q_itemsItems: 1,
+        link_values: "/",
+        parent: 0,
+    },
+    {
+        id: 21,
+        title: "List Referees",
+        q_itemsItems: 1,
+        link_values: "/list-referees",
+        parent: 20,
     },
 ]
 const SideBar = (props) => {
-    const {showfull } = useSideBar();
+    const { showfull } = useSideBar();
     return (
         <Fragment>
             <aside className={`main-sidebar sidebar-dark-primary elevation-4 transition-transform ease-in-out duration-300  ${showfull ? '-translate-x-96 ' : ''} ${props.hidden === true ? 'hidden' : ''} `} style={{

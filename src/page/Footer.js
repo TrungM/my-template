@@ -15,7 +15,7 @@ const Footer = (props) => {
 
     return (
         <Fragment>
-            <StyledFooter className={`${showfull? "ml-0" : "ml-64 -translate-x-4"}  ${props.hidden ===true ? 'hidden' : ''}  `} >
+            <StyledFooter className={`${showfull? "ml-0" : "ml-60"}  ${props.hidden ===true ? 'hidden' : ''}  `} >
                 <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">My Team </a>.</strong>
                 All rights reserved.
                 <div className="float-right d-none d-sm-inline-block">

@@ -10,6 +10,10 @@ import Result from "./user/page/Result";
 import Player from "./user/page/Player";
 import News from "./user/page/News";
 import useLoginAdmin from "./Hook/Login/useLoginAdmin";
+import NewDetail from "./user/page/NewDetail";
+import SignIn from "./user/page/Sigin";
+import Register from "./user/page/Register";
+import MatchDetail from "./user/page/MatchDetail";
 
 function App(props) {
 
@@ -27,7 +31,10 @@ function App(props) {
         <Route path="/results" element={<Result></Result>} />
         <Route path="/players" element={<Player></Player>} />
         <Route path="/news" element={<News></News>} />
-
+        <Route path="/news/:id" element={<NewDetail></NewDetail>} />
+        <Route path="/login" element={<SignIn></SignIn>} />
+        <Route path="/register" element={<Register></Register>} />
+        <Route path="/match/:id" element={<MatchDetail></MatchDetail>} />
       </Routes>
     </Fragment>
 

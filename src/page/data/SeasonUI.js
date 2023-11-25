@@ -12,6 +12,7 @@ import useActionListSeasonUI from '../../Hook/Season/useActionListSeasonUI';
 import styled from 'styled-components';
 import useActionUpdateActiveUI from '../../Hook/Ranking/useActionUpdateActiveUI';
 import useActionUpdateActiveUIMatch from '../../Hook/Matches/useActionUpdateActiveUIMatch';
+import useActionUpdateActiveClubRef from '../../Hook/Clubs/useActionUpdateActiveClubRef';
 const StyleCricle = styled.div`
 
         width: 2rem;
@@ -42,6 +43,7 @@ const SeasonUI = () => {
     const { handleApiResetSeasonIDActive } = useActionResetSeasonUI();
     const { handleApiUpdateActiveUIRanking } = useActionUpdateActiveUI();
     const { handleApiUpdateActiveUIMatch } = useActionUpdateActiveUIMatch();
+    const { handleApiUpdateActiveUIClubs } = useActionUpdateActiveClubRef();
 
     const { value } = useActionSeasonUICount();
     const { listActiveUI,
@@ -62,6 +64,8 @@ const SeasonUI = () => {
                 handleApiResetSeasonIDActive('/api/season/seasonUI/reset', values.seasonID)
                 handleApiUpdateActiveUIRanking('/api/table/active/', values.seasonID)
                 handleApiUpdateActiveUIMatch('/api/match/active/', values.seasonID)
+                // test
+                handleApiUpdateActiveUIClubs ('/api/clubs/ref/active/', values.seasonID)
                 setLayoutSeason(true);
                 window.location.reload();
             } else {

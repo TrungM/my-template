@@ -25,7 +25,7 @@ const useActionList = (api) => {
             if (response.data) {
                 return response.data;
             } else {
-                return [];
+                return 1;
             }
         } catch (error) {
             console.error(error);

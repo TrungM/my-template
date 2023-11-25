@@ -8,7 +8,6 @@ const useActionPutActiveSeason = () => {
         } catch (error) {
 
             console.log(error);
-
         }
 
     }

@@ -12,10 +12,11 @@ import { useParams } from 'react-router-dom';
 import useActionCountLeg from '../../Hook/Matches/useActionCountLeg';
 import useActionCountActive from '../../Hook/Matches/useActionCountActive';
 import LayoutAdmin from '../LayoutAdmin';
+import useActionListFullReferees from '../../Hook/Referees/useActionListFullReferees';
 
 const StyleSpanResult = styled.span`
 
-font-size: 40px;
+font-size: 42px;
 font-weight: bold;
 color:black;
 
@@ -23,11 +24,10 @@ color:black;
 
 const StyleBorderResult = styled.div`
 
-border: 1px solid #e76f51;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 padding: 1rem 1rem;
 height: 4rem;
-border-radius: 20%;
+border-radius: 10%;
 display: flex;
 align-items: center;
 
@@ -84,15 +84,13 @@ text-align: center;
 `
 const EditMatch = () => {
 
-
-
     const { showfull } = useSideBar();
+    const [started, setStarted] = useState(false);
     const roundmatch = [];
 
     const {
         new2,
     } = useActionListMatches("/api/match/list");
-    const { matchID } = useParams();
     const formik = useFormik({
         initialValues: {
             clubHome: "",
@@ -103,14 +101,20 @@ const EditMatch = () => {
             season: "",
             stadiumId: null,
             roundmatch: "",
-            active : null,
+            active: null,
+            isHome: null,
             leg: "",
-
+            status: "",
+            timeHappen: "",
+            resultClubHome: 0,
+            resultClubAway: 0,
         },
         validationSchema: Yup.object({
-
             clubHome: Yup.object().required("Required"),
             clubAway: Yup.object().required("Required"),
+            matchDay: Yup.string().required("Required"),
+            matchTime: Yup.string().required("Required"),
+            referees: Yup.number().required("Required"),
         }),
 
 
@@ -135,8 +139,8 @@ const EditMatch = () => {
         code,
         id,
         NameStadiumstate, nameAway, nameHome, logoHome,
-        logoAway, referee, round, leg, date,
-        time, matchCode, clubIDHome, stadiumActive, stadiumIdHomeName } = useActionPut(formik);
+        logoAway, referees, round, leg, date, resultClubHome, resultClubAway, status,
+        time, matchCode, clubIDHome, stadiumActive, stadiumIdHomeName, handleApiUpdateType } = useActionPut(formik);
 
     const { listContentClubActive,
         loading,
@@ -145,38 +149,39 @@ const EditMatch = () => {
     const {
         listContent,
     } = useActionListFull("/api/stadiums/list");
-   
+
     const { countActive } = useActionCountActive("/api/match/countMatches");
 
+    const { listAllReferees } = useActionListFullReferees("/api/referees/list");
 
-    if (formik.values.leg === "first") {
 
-        for (let i = 1; i <= 19; i++) {
-            roundmatch.push(<Fragment key={i}><option value={i} >{i}</option> </Fragment>);
-        }
-
-    } else {
-        for (let i = 20 ; i <= 38; i++) {
-            roundmatch.push(<Fragment key={i}><option value={i} >{i}</option> </Fragment>);
-
-        }
+    for (let i = 1; i <= 38; i++) {
+        roundmatch.push(<Fragment key={i}><option value={i} >{i}</option> </Fragment>);
     }
-    const handleChangeSelectReferees = (e) => {
-        const rID = parseInt(e.target.value);
-        formik.setFieldValue("referees", rID);
-    }
+
 
     const handleChangeSelectRoundMatch = (e) => {
         const rID = parseInt(e.target.value);
         formik.setFieldValue("roundmatch", rID);
     }
 
+    const handleClickStart = () => {
+        handleApiUpdateType('/api/match/type/', parseInt(id), 0)
+        formik.setFieldValue("status", 0)
+        setStarted(true);
+        alert('Your match started')
+    }
+
+    const handleClickFinish = () => {
+        handleApiUpdateType('/api/match/type/', parseInt(id), 1)
+        formik.setFieldValue("status", 1)
+        alert('Your match finished')
+    }
+
+
     useEffect(() => {
         document.title = "Edit Matches";
     });
-
-
-
 
 
     return (
@@ -186,12 +191,12 @@ const EditMatch = () => {
                     <div className="container-fluid">
                         <div className="row mb-2">
                             <div className="col-sm-6">
-                                <h1>Edits Match Form </h1>
+                                <h1>Edit Match Form </h1>
                             </div>
                             <div className="col-sm-6">
                                 <ol className="breadcrumb float-sm-right">
                                     <li className="breadcrumb-item"><a href="*">Home</a></li>
-                                    <li className="breadcrumb-item active">Edits Match</li>
+                                    <li className="breadcrumb-item active">Edit Match</li>
                                 </ol>
                             </div>
                         </div>
@@ -204,7 +209,7 @@ const EditMatch = () => {
                             <div className="mr-3" >
                                 <div className="card card-primary">
                                     <div className="card-header">
-                                        <h3 className="card-title">Edits the Information of the match  </h3>
+                                        <h3 className="card-title">Edit the Information of the match  </h3>
                                     </div>
                                     <form onSubmit={formik.handleSubmit}>
                                         <div className="card-body">
@@ -225,30 +230,51 @@ const EditMatch = () => {
                                             <div className="form-group">
                                                 <label htmlFor="name">Date</label>
                                                 <input type="date" className="form-control" name='matchDay' id="Date"  {...formik.getFieldProps("matchDay")} />
+                                                {formik.touched.matchDay === true && formik.errors.matchDay ? <small className='text-red-500 font-medium text-base' >{formik.errors.matchDay}</small> : null}
                                             </div>
-
                                             <div className="form-group">
                                                 <label htmlFor="exampleInputFile">Time</label>
                                                 <input type="time" className="form-control" name='matchTime' id="time"   {...formik.getFieldProps("matchTime")} />
+                                                {formik.touched.matchTime === true && formik.errors.matchTime ? <small className='text-red-500 font-medium text-base' >{formik.errors.matchTime}</small> : null}
                                             </div>
                                             <div className="form-group">
-                                                <label htmlFor="exampleInputFile">Referees</label>
-                                                <input type="text" className="form-control" name='referees' id="referees" onChange={handleChangeSelectReferees} />
+                                                <label htmlFor="exampleInputFile">Referees : {referees}</label>
+                                                <select name="referees" className="form-control" {...formik.getFieldProps("referees")}>
+                                                    <option value=""> Choose referee </option>
+                                                    {listAllReferees.length > 0 && listAllReferees.map((items, index) => {
+                                                        if (items.id !== formik.values.referees) {
+                                                            return <option value={items.id} key={index}> {items.name} </option>
+                                                        }
+                                                    }
+                                                    )}
+                                                </select>
+                                                {formik.touched.referees === true && formik.errors.referees ? <small className='text-red-500 font-medium text-base' >{formik.errors.referees}</small> : null}
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="Leg">Leg</label>
                                                 <select name="leg" className="form-control"  {...formik.getFieldProps("leg")}>
                                                     <option value="first"> First </option>
                                                     <option value="return"> Return </option>
-
                                                 </select>
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="roundmatch">Round</label>
-                                                <select name="roundmatch" className="form-control" {...formik.getFieldProps("roundmatch")}  onChange={handleChangeSelectRoundMatch}>
+                                                <select name="roundmatch" className="form-control" {...formik.getFieldProps("roundmatch")} onChange={handleChangeSelectRoundMatch}>
                                                     <option value="" key="0"> Please choose is  here </option>
                                                     {roundmatch}
                                                 </select>
+                                            </div>
+                                            <div className={`form-group ${started || formik.values.status === 0 || formik.values.status === 1  ? '' : 'hidden'}`}>
+                                                <label htmlFor="timeHappen">Time</label>
+                                                <input type="text" className="form-control" name='timeHappen' id="timeHappen"  {...formik.getFieldProps("timeHappen")} disabled = {formik.values.status === 1 ? true : false} />
+                                            </div>
+                                            <div className={`form-group ${started || formik.values.status === 0 || formik.values.status === 1 ? '' : 'hidden'}`}>
+                                                <label htmlFor="resultClubHome">Result Club Home</label>
+                                                <input type="text" className="form-control" name='resultClubHome' id="resultClubHome"  {...formik.getFieldProps("resultClubHome")} disabled = {formik.values.status === 1 ? true : false} />
+                                            </div>
+                                            <div className={`form-group ${started || formik.values.status === 0 || formik.values.status === 1 ? '' : 'hidden'}`}>
+                                                <label htmlFor="resultClubAway">Result Club Away</label>
+                                                <input type="text" className="form-control" name='resultClubAway' id="resultClubAway"  {...formik.getFieldProps("resultClubAway")}  disabled = {formik.values.status === 1 ? true : false} />
                                             </div>
                                         </div>
                                         <div className="card-footer flex gap-3">
@@ -269,20 +295,22 @@ const EditMatch = () => {
                                         <StyleImageResult>
                                             <img src={logoHome} alt='' />
                                         </StyleImageResult>
-                                        {/* <div className='field_result flex justify-between gap-3'>
-                                            <StyleBorderResult>
-                                                <StyleSpanResult>2</StyleSpanResult>
-                                            </StyleBorderResult>
-                                            <StyleBorderResult>
-                                                <StyleSpanResult>3</StyleSpanResult>
-                                            </StyleBorderResult>
-                                        </div>
-                                         */}
-                                        <StyleSetUpTime>
-                                            <div><StyleSetUpDate>{date == null ? "Date" : date}</StyleSetUpDate></div>
-                                            <div><StyleSetUpTimer>{time == null ? "Time" : time}</StyleSetUpTimer></div>
-                                        </StyleSetUpTime>
-
+                                        {
+                                            status === 0 || status === 1|| started ?
+                                                <div className='field_result flex justify-between gap-3'>
+                                                    <StyleBorderResult>
+                                                        <StyleSpanResult>{formik.values.resultClubHome ?? resultClubHome}</StyleSpanResult>
+                                                    </StyleBorderResult>
+                                                    <StyleBorderResult>
+                                                        <StyleSpanResult>{formik.values.resultClubAway ?? resultClubAway }</StyleSpanResult>
+                                                    </StyleBorderResult>
+                                                </div>
+                                                :
+                                                <StyleSetUpTime>
+                                                    <div><StyleSetUpDate>{date == null ? "Date" : date}</StyleSetUpDate></div>
+                                                    <div><StyleSetUpTimer>{time == null ? "Time" : time}</StyleSetUpTimer></div>
+                                                </StyleSetUpTime>
+                                        }
                                         <StyleImageResult>
                                             <img src={logoAway} alt='' />
                                         </StyleImageResult>
@@ -307,12 +335,24 @@ const EditMatch = () => {
                                                 <h5 className='p-2 text-red-600'>{nameHome}</h5>
                                                 <h5 className='p-2 text-blue-600'>{nameAway} </h5>
                                                 <h5 className='p-2'>{stadiumIdHomeName} </h5>
-                                                <h5 className='p-2'>{referee == null ? "None" : referee} </h5>
+                                                <h5 className='p-2'>{referees == null ? "None" : referees} </h5>
                                                 <h5 className='p-2'>{round == null ? "None" : round} </h5>
                                                 <h5 className='p-2 capitalize'>{leg == null ? "None" : leg} </h5>
                                             </div>
                                         </div>
 
+                                        {
+                                            status === 0 || started ?
+                                                <div className={`flex justify-end p-2 ${date == null || time == null || referees == null || formik.values.status === 1  ? 'hidden' : ''}`}>
+                                                    <button type="button" className="btn  btn-danger" onClick={handleClickFinish}
+                                                    >Finish Match</button>
+                                                </div>
+                                                :
+                                                <div className={`flex justify-end p-2 ${date == null || time == null || referees == null || formik.values.status === 1 ? 'hidden' : ''}`}>
+                                                    <button type="button" className="btn  btn-success" onClick={handleClickStart}
+                                                    >Start Match</button>
+                                                </div>
+                                        }
                                     </div>
                                 </div>
                             </div>

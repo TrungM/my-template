@@ -37,10 +37,12 @@ const Season = () => {
     const { showfull, countActive } = useSideBar();
     const { listContent,
         loading, } = useActionListFullSeason("/api/season/listSeason")
-    const [ seasonID, setSeasonID ] = useState(0);
+    const [seasonID, setSeasonID] = useState(0);
 
     useEffect(() => {
         document.title = "Season"
+
+        console.log(listContent);
     })
 
 
@@ -68,7 +70,7 @@ const Season = () => {
                         <div >
                             {!loading && listContent.length > 0 && listContent.map((items, index) => (
                                 <div className="block" key={index}>
-                                    <div className="small-box bg-info">
+                                    <div className={`small-box  ${items.finish === 1 ? "bg-danger" :  "bg-info"}`}>
                                         <div className="inner">
                                             <div className='flex items-center justify-between'>
                                                 <h3>{items.seasonname} </h3>

@@ -125,6 +125,8 @@ const AddStadiums = () => {
         },
         validationSchema: Yup.object({
             name: Yup.string().max(200, "Must be 200 chacracter or less").required("Required").notOneOf(new2, "Name is existed"),
+            address: Yup.string().required("Required"),
+            image: Yup.string().required("Required"),
         }),
 
 
@@ -136,6 +138,10 @@ const AddStadiums = () => {
                 setTimeout(() => {
                     actions.resetForm({
                         name: "",
+                        capacity: "",
+                        address: "",
+                        pitchSize: "",
+                        description: "",
                         image: "",
                     });
                     actions.setSubmitting(false);
@@ -145,7 +151,6 @@ const AddStadiums = () => {
             } else {
                 actions.setSubmitting(false);
             }
-            // console.log(values);
         },
     });
 
@@ -204,7 +209,7 @@ const AddStadiums = () => {
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="description">Description</label>
-                                                <textarea class="form-control" rows="3" name='description' id="stadium_description" placeholder="Enter new description"   {...formik.getFieldProps("description")}></textarea>
+                                                <textarea className="form-control" rows="3" name='description' id="stadium_description" placeholder="Enter new description"   {...formik.getFieldProps("description")}></textarea>
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="capacity">Capacity</label>
@@ -213,6 +218,7 @@ const AddStadiums = () => {
                                             <div className="form-group">
                                                 <label htmlFor="address">Address</label>
                                                 <input type="text" className="form-control" name='address' id="stadium_address" placeholder="Enter new address"   {...formik.getFieldProps("address")} />
+                                                {formik.touched.address === true && formik.errors.address ? <small className='text-red-500 font-medium text-base' >{formik.errors.address}</small> : null}
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="pitchSize">Pitch Size</label>

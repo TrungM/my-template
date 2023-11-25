@@ -9,7 +9,6 @@ const useUpdateImageClubs = () => {
         } catch (error) {
 
             console.log(error);
-
         }
 
     }

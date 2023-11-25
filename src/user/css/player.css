@@ -24,3 +24,107 @@
     color: #fff;
 
 }
+
+#players .body .body-wrapper {
+    max-width: 1376px;
+    margin: 0 auto
+}
+
+.league-player__thFull span {
+    font-size: 0.7rem;
+}
+
+#players .body .body-wrapper .table-player table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#players .body .body-wrapper .table-player table thead tr {
+    background-color: #fbfafa;
+    border-bottom: 0.1rem solid #ebe5eb;
+    font-size: 1rem;
+    color: #87668a;
+    font-weight: 400;
+    line-height: 1.8rem;
+    text-align: left;
+}
+
+#players .body .body-wrapper .table-player table thead tr th {
+    padding: 0.5rem 0.8rem 0.5rem 1.6rem;
+}
+
+#players .body .body-wrapper .table-player table tbody tr th {
+    padding: 0.5rem 0.8rem 0.5rem 1.6rem;
+}
+
+#players .body .body-wrapper .table-player table tbody tr {
+    border-bottom: .1rem solid #f5f2f5;
+    height: 5.6rem;
+    font-size: 1.6rem;
+}
+
+.league-player__thFull span {
+    font-size: 0.7rem;
+}
+
+.form-abbreviation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.2rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+    letter-spacing: -.04rem;
+    border-radius: 100%;
+    background: #00db74;
+}
+
+#players .body .body-wrapper .table-player table tbody {
+    color: #87668a;
+}
+
+#players .body .body-wrapper .table-player table tbody tr {
+    border-bottom: 0.1rem solid #f5f2f5;
+    color: #37003c;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+
+#players .body .body-wrapper .table-player table tbody tr .player__img a {
+    text-decoration: none;
+    color: #37003c;
+    display: flex;
+    align-items: center;
+}
+
+.player__name-image {
+    width: 2.6rem;
+    margin: 0.5rem 1.5rem;
+}
+
+#players .body .body-wrapper .table-player table tbody tr .player__img a img {
+    opacity: 1;
+    transition: opacity .35s ease-in-out, transform .2s;
+    position: relative;
+}
+
+.player__nationality_span {
+    display: flex;
+    align-items: center;
+}
+
+.player__flag {
+    margin-right: 1rem;
+    width: 2.6rem;
+    display: flex;
+}
+
+.player__position{
+   padding: 1rem 1rem;
+}

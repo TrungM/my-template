@@ -77,26 +77,33 @@ const ChooseClubs = () => {
     const { GetApiDeleteChooseClub } = useActionDeleteChooseClub("/api/clubs/deleteChooseClub");
 
     const [arrayClubs, setArrayClubs] = useState([]);
+    const [arrayRanking, setArrayRanking] = useState([]);
 
     const hanldeValueClubs = async (e) => {
 
 
         if (e.target.checked === true) {
-            const clubs = { "clubID": { "id": e.target.value }, 'season': { "id": id }, 'active': 1 };
+            const clubs = { "clubID": { "id": e.target.value }, 'season': { "id": id }, 'active': 0 };
+            const ranking = { "position": 0, "clubName": { "id": e.target.value }, "clubid": e.target.value, 'season': id };
+
             handleApiUpdateActiveClub('/api/clubs/activeClub', e.target.value, 1)
             if (arrayClubs.length === 19) {
                 alert("You have selected enough teams to participate ");
                 setnoChoose(true);
             }
-            console.log(arrayClubs);
             setquantity(arrayClubs.length + 1);
             arrayClubs.push(clubs);
-            handleCreate("/api/table/create", { "position": 0 , "clubName": { "id": e.target.value }, "clubid": e.target.value, 'season': id })
+            arrayRanking.push(ranking);
         } else {
             handleApiUpdateActiveClub("/api/clubs/activeClub", e.target.value, 0);
             setReset(true);
             const index = arrayClubs.findIndex(item => item.clubID?.id === e.target.value);
             arrayClubs.splice(index, 1);
+
+            const index2 = arrayRanking.findIndex(item => item.clubID?.id === e.target.value);
+            arrayRanking.splice(index2, 1);
+
+            setquantity(arrayClubs.length);
         }
     }
 
@@ -106,6 +113,9 @@ const ChooseClubs = () => {
         } else {
             arrayClubs.map((item) => (
                 handleCreateRefClub("/api/clubs/createRef", item)
+            ))
+            arrayRanking.map((item) => (
+                handleCreate("/api/table/create", item)
             ))
             handleApiResetActive('/api/clubs/activeClub/reset');
             alert('Congratulation');

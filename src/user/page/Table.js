@@ -117,7 +117,7 @@ const Table = () => {
                                                 </td>
                                                 <td>
                                                     <div className="league-table-imageClubs">
-                                                        <img src="/image/premierleague.png" alt="" />
+                                                        <img src={items.nextmatch?.image} alt="" />
                                                     </div>
                                                 </td>
                                             </tr>

@@ -12,6 +12,16 @@ module.exports = {
         )`,
         "secondary-gradient": `linear-gradient(86.88deg, #20e3b2, #2cccff)`,
       },
+      colors:{
+        "default" : `#37003c`,
+      },
+      backgroundColor : {
+        "default" : `#37003c`,
+      },
+      fontFamily: {
+        'premier-sans': ['PremierSans-Regular', 'Arial', 'Helvetica Neue', 'Helvetica', 'sans-serif']
+      }
+
     },
   },
   plugins: [],

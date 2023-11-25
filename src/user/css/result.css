@@ -54,56 +54,58 @@
     width: auto;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture {
+#results .results-full-list .body .results-matches-list .matchList .match-result {
     display: flex;
     justify-content: space-between;
     border-bottom: 0.1rem solid #f5f2f5;
     cursor: pointer;
     padding: 0 1.6rem;
+    position: relative;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture:hover {
+#results .results-full-list .body .results-matches-list .matchList .match-result:hover {
     background: linear-gradient(98.5deg, #05f0ff -46.16%, #7367ff 42.64%, #963cff 70.3%);
     color: #fff;
 
 
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail {
     display: flex;
     justify-content: space-between;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail .home {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail .home {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail .home span {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail .home span {
     width: 10rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-align: right;
+    color: #37003c;
 
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail .home .home-img {
-    width: 30px;
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail .home .home-img {
+    width: 40px;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail .home .home-img img {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail .home .home-img img {
     width: auto;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture  .statistic {
+#results .results-full-list .body .results-matches-list .matchList .match-result  .statistic {
     padding: 1rem 1rem;
     font-size: 40px;
     font-weight: 600;
     display: flex;
     align-items: center;
 }
-#results .results-full-list .body .results-matches-list .matchList .match-fixture  .statistic .score {
+#results .results-full-list .body .results-matches-list .matchList .match-result  .statistic .score {
     display: flex;
     gap: 2px;
     align-items: center;
@@ -113,28 +115,29 @@
 }
 
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail .away {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail .away {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail .away span {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail .away span {
     width: 10rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-align: left;
+    color: #37003c;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail .away .away-img {
-    width: 30px;
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail .away .away-img {
+    width: 40px;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-detail .away .away-img img {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-detail .away .away-img img {
     width: auto;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-stadium {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-stadium {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -142,14 +145,23 @@
 }
 
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-stadium span {
-    font-size: 0.7rem;
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-stadium span {
+    font-size: 0.8rem;
     font-weight: 500;
+    width: 18.75rem;
 }
 
-#results .results-full-list .body .results-matches-list .matchList .match-fixture .match-action {
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-action {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+}
+
+#results .results-full-list .body .results-matches-list .matchList .match-result .match-action .button-view {
+    background-color: #fff;
+    color: #37003c;
+    border: 0.1rem solid #ebe5eb;
+    border-radius: 0.4rem;
+    padding: 0.2rem 0.2rem;
 }

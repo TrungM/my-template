@@ -48,16 +48,9 @@ const Table = () => {
                                         <table id="example2" className="table table-bordered table-hover text-center">
                                             <thead>
                                                 <tr>
-                                                    <th>Position</th>
                                                     <th>Logo</th>
                                                     <th>Name</th>
                                                     <th>Played</th>
-                                                    <th>Won</th>
-                                                    <th>Draw</th>
-                                                    <th>Lose</th>
-                                                    <th>GF</th>
-                                                    <th>GA</th>
-                                                    <th>GD</th>
                                                     <th>Points</th>
                                                     <th>Next</th>
                                                     <th>Action</th>
@@ -69,21 +62,18 @@ const Table = () => {
 
                                                     if (parseInt(items.season) === parseInt(getID)) {
                                                         return <tr key={items.id}>
-                                                            {/* <td style={{ width: "10%" }}><img src={items.image} alt="" width="100%" /> </td> */}
-                                                            {/* <td>{items.position}</td> */}
-                                                            <td>{items.position === 0 ? null : items.position}</td>
-                                                            <td style={{ width: "10%" }}><img src={items.clubName.image} alt="" width="100%" /> </td>
-                                                            <td>{items.clubName.name}</td>
+                                                            <td style={{ width: "10%" }}><img src={items.clubName?.image} alt="" width="100%" /> </td>
+                                                            <td>{items.clubName?.name}</td>
                                                             <td>{items.player == null ? "0" : items.player}</td>
-                                                            <td>{items.won}</td>
+                                                            {/* <td>{items.won}</td>
                                                             <td>{items.draw}</td>
                                                             <td>{items.lose}</td>
                                                             <td>{items.gf}</td>
                                                             <td>{items.gd}</td>
-                                                            <td>{items.ga}</td>
+                                                            <td>{items.ga}</td> */}
                                                             <td>{items.points}</td>
-                                                            <td>{items.nextmatch}</td>
-                                                            <td> <Link to={`/edit-clubs/${items.codeClub}`}><button type="button" className="btn btn-outline-success">Update</button></Link>
+                                                            <td><img src={items.nextmatch?.image} alt="" /></td>
+                                                            <td> <Link to={`/admin/edit-table/${items.id}/${id}`}><button type="button" className="btn btn-outline-success">Update</button></Link>
                                                             </td>
                                                         </tr>
                                                     }
@@ -92,16 +82,9 @@ const Table = () => {
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>Position</th>
                                                     <th>Logo</th>
                                                     <th>Name</th>
                                                     <th>Played</th>
-                                                    <th>Won</th>
-                                                    <th>Draw</th>
-                                                    <th>Lose</th>
-                                                    <th>GF</th>
-                                                    <th>GA</th>
-                                                    <th>GD</th>
                                                     <th>Points</th>
                                                     <th>Next matches</th>
                                                     <th>Action</th>
@@ -112,16 +95,9 @@ const Table = () => {
                                         <div className={` flex justify-between p-6 ${totalPage === 1 ? "hidden" : ""}`}>
                                             <Pagniation api="/api/stadiums/all" totalPage={totalPage} next={next} handleNext={handleNext} handlePrevious={handlePrevious} ></Pagniation>
                                         </div> */}
-
-
-
                                     </div>
-
-
                                 </div>
                                 {/* {loading && (<StyleCricle></StyleCricle>)} */}
-
-
                             </div>
                         </div>
                     </div>

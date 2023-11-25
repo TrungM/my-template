@@ -2,10 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import useActionDelete from '../useActionDelete';
 
-const useActionListFullClub = (api, keyword) => {
+const useActionListFullClub = (api, keyword = null) => {
 
     const GetList = async (api, keyword = null) => {
-        // /api/stadiums/all
         try {
             if (keyword != null && keyword?.length > 0) {
                 const response = await axios.get(`${api}?name=${keyword}`, {});

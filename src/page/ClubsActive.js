@@ -2,9 +2,10 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useSideBar } from '../context/showSideBarContext';
 import styled from 'styled-components';
 import useActionListActive from '../Hook/Clubs/useActionListActive';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import useActionListRefClub from '../Hook/Clubs/useActionListRefClub';
 import LayoutAdmin from './LayoutAdmin';
+import useActionPutFinishSeason from '../Hook/Season/useActionPutFinishSeason';
 
 
 
@@ -23,9 +24,16 @@ const ClubsActive = () => {
     const { showfull } = useSideBar();
     const { id } = useParams();
     const [getID, setID] = useState();
-    // const { listContentClubActive,
-    //     loading,
-    // } = useActionListActive("/api/clubs/activeAll");
+    const history = useNavigate();
+    const { handleApiFinishSeason} = useActionPutFinishSeason();
+
+    const handleFinish = () => {
+        const confirmed = window.confirm('Are you sure within your option ');
+        if (confirmed) {
+            handleApiFinishSeason("/api/season/seasonUI/finish/", getID);
+            history('/admin/managenment-season');
+        }
+    }
 
     const { listContent,
         loading, } = useActionListRefClub("/api/clubs/listRefClubs");
@@ -60,21 +68,26 @@ const ClubsActive = () => {
                             <div className="col-12">
                                 <div className="card card-primary">
                                     <div className="card-header">
-                                        <div className='flex gap-3'>
-                                            <Link to={`/admin/table/${getID}`}><button type="button" className="btn btn-secondary">Table</button>
-                                            </Link>
-                                            <Link to={`/admin/schedules/${getID}`}><button type="button" className="btn btn-danger">Matches</button></Link>
+                                        <div className='flex justify-between gap-3'>
+                                            <div className='flex gap-3'>
+                                                <Link to={`/admin/table/${getID}`}><button type="button" className="btn btn-secondary">Table</button>
+                                                </Link>
+                                                <Link to={`/admin/schedules/${getID}`}><button type="button" className="btn btn-dark">Matches</button></Link>
+                                            </div>
+                                            <div>
+                                                <button type="button" className="btn btn-danger" onClick={handleFinish}>Kết thúc mùa giải</button>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="card-body">
                                         <div className="row gap-6 ">
                                             {!loading && listContent.length > 0 && listContent.map((items, index) => {
 
-                                                if ( parseInt(items.season.id) === parseInt(getID)) {
+                                                if (parseInt(items.season.id) === parseInt(getID)) {
                                                     return <StyleBorder className="col-sm-2" key={index}>
-                                                        {/* <a href="/#" > */}
-                                                        <StyleImg src={items.clubID.image} alt="white sample" />
-                                                        {/* </a> */}
+                                                        <Link to={`/admin/edit-clubs/${items.clubID.codeClub}`} >
+                                                            <StyleImg src={items.clubID.image} alt="white sample" />
+                                                        </Link>
                                                     </StyleBorder>
                                                 }
 

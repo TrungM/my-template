@@ -46,7 +46,7 @@ const Schedules = () => {
     const { id } = useParams();
     const [getID, setID] = useState();
     const [disabled, setDisabled] = useState(false);
-    const { checkSeason } = useActionCheckSeason("/api/match/checkSeason",parseInt(id))
+    const { checkSeason } = useActionCheckSeason("/api/match/checkSeason", parseInt(id))
     useEffect(() => {
         setID(id);
         document.title = "Matches";
@@ -83,11 +83,15 @@ const Schedules = () => {
                         <div className="row mb-2">
                             <div className="col-sm-6">
                                 <h1>List Matches</h1>
-                                <button type="button" className="btn btn-secondary mt-2" onClick={handleCreateMatches} value={getID} disabled={disabled}>Create Match</button>
-                                <Link to={`/admin/schedules/first/${getID}`}><button type="button" className="btn btn-primary mt-2 mr-2 ml-2" >The first leg</button>
-                                </Link>
-                                <Link to={`/admin/schedules/return/${getID}`}><button type="button" className="btn btn-primary mt-2" >The return leg</button>
-                                </Link>
+                                <div className='flex gap-3'>
+                                    <button type="button" className="btn btn-secondary" onClick={handleCreateMatches} value={getID} disabled={disabled}>Create Match</button>
+                                    <Link to={`/admin/schedules/first/${getID}`}><button type="button" className="btn btn-primary" >The first</button>
+                                    </Link>
+                                    <Link to={`/admin/schedules/return/${getID}`}><button type="button" className="btn btn-primary" >The return</button>
+                                    </Link>
+                                    <Link to={`/admin/schedules/homepage/${getID}`}><button type="button" className="btn btn-primary" >Homepage</button>
+                                    </Link>
+                                </div>
 
                             </div>
                             <div className="col-sm-6">

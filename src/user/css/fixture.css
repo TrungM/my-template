@@ -59,6 +59,7 @@
     border-bottom: 0.1rem solid #f5f2f5;
     cursor: pointer;
     padding: 0 1.6rem;
+    position: relative;
 }
 
 #fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture:hover {
@@ -87,11 +88,13 @@
     color: #37003c;
 
 }
+
 #fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture:hover .match-detail .home span {
     color: #fff;
 
 
 }
+
 #fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .home .home-img {
     width: 40px;
 }
@@ -113,6 +116,19 @@
     padding: 0.3rem 0.3rem;
 }
 
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .number {
+    padding: 1rem 1rem;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .number span {
+    background: transparent;
+    font-size: 0.9rem;
+    width: 5.2rem;
+    border: 0.1rem solid #ebe5eb;
+    border-radius: 10px;
+    padding: 0.3rem 0.3rem;
+}
+
 #fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .away {
     display: flex;
     justify-content: space-between;
@@ -126,10 +142,12 @@
     text-align: left;
     color: #37003c;
 }
+
 #fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture:hover .match-detail .away span {
     color: #fff;
 
 }
+
 #fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-detail .away .away-img {
     width: 40px;
 }
@@ -149,7 +167,7 @@
 #fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-stadium span {
     font-size: 0.8rem;
     font-weight: 500;
-    width:18.75rem;
+    width: 18.75rem;
 }
 
 #fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-action {
@@ -157,4 +175,12 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+}
+
+#fixtures .fixtures-full-list .body .fixtures-matches-list .matchList .match-fixture .match-action .button-view {
+    background-color: #fff;
+    color: #37003c;
+    border: 0.1rem solid #ebe5eb;
+    border-radius: 0.4rem;
+    padding: 0.2rem 0.2rem;
 }

@@ -141,7 +141,7 @@ const AddClubs = () => {
             if (confirmed) {
                 handleCreate("/api/clubs/create", values);
                 //    setgetID(values.stadiumid)
-                handleApiUpdateActive("/api/clubs/active", values.stadiumid);
+                handleApiUpdateActive("/api/stadiums/active", values.stadiumid);
 
                 setTimeout(() => {
                     actions.resetForm({

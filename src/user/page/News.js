@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from './layout/Layout';
 import '../css/news.css';
+import useActionListUI from '../../Hook/News/useActionListUI';
+import { Link } from 'react-router-dom';
 
 const News = () => {
+    const { loading, listContent } = useActionListUI();
+    useEffect(() => {
+        document.title = "News";
+    });
     return (
         <Layout>
             <div id="news">
@@ -13,83 +19,30 @@ const News = () => {
                 </header>
                 <div className='body'>
                     <ul className='list-post'>
-                        <li>
-                            <div className='post-items'>
-                                <div className='image'>
-                                    <img src="/image/Fulham-Chelsea-preview.webp" alt="" />
-                                </div>
-                                <div className='content'>
-                                    <div className='title'>
-                                        <span>Fulham v Chelsea: All you need to know</span>
+                        {!loading && listContent.length > 0 && listContent.map((items, index) => (
+                            <li key={index}>
+                                <Link to={`/news/${items.id}`}>
+                                    <div className='post-items'>
+                                        <div className='image'>
+                                            <img src={items.image} alt="" />
+                                        </div>
+                                        <div className='content'>
+                                            <div className='time'>
+                                                <span>{items.createdAt}</span>
+                                            </div>
+                                            <div className='title'>
+                                                <span>{items.title}</span>
+                                            </div>
+                                            <div className='decription'>
+                                                <p>{items.description}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className='decription'>
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='post-items'>
-                                <div className='image'>
-                                    <img src="/image/Fulham-Chelsea-preview.webp" alt="" />
-                                </div>
-                                <div className='content'>
-                                    <div className='title'>
-                                        <span>Fulham v Chelsea: All you need to know</span>
-                                    </div>
-                                    <div className='decription'>
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='post-items'>
-                                <div className='image'>
-                                    <img src="/image/Fulham-Chelsea-preview.webp" alt="" />
-                                </div>
-                                <div className='content'>
-                                    <div className='title'>
-                                        <span>Fulham v Chelsea: All you need to know</span>
-                                    </div>
-                                    <div className='decription'>
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='post-items'>
-                                <div className='image'>
-                                    <img src="/image/Fulham-Chelsea-preview.webp" alt="" />
-                                </div>
-                                <div className='content'>
-                                    <div className='title'>
-                                        <span>Fulham v Chelsea: All you need to know</span>
-                                    </div>
-                                    <div className='decription'>
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='post-items'>
-                                <div className='image'>
-                                    <img src="/image/Fulham-Chelsea-preview.webp" alt="" />
-                                </div>
-                                <div className='content'>
-                                    <div className='title'>
-                                        <span>Fulham v Chelsea: All you need to know</span>
-                                    </div>
-                                    <div className='decription'>
-                                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                                </Link>
 
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </Layout>

@@ -3,6 +3,8 @@ import '../../css/header.css'
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import SignIn from '../Sigin';
+import ReactDOM from "react-dom";
 
 const ListLink = [
     {
@@ -23,7 +25,7 @@ const ListLink = [
     {
         id: 4,
         to: "/results",
-        title: "Result",
+        title: "Results",
     },
     {
         id: 5,
@@ -41,6 +43,7 @@ const ListLink = [
 
 const Header = () => {
     const [isActive, setIsActive] = useState(false);
+    const [showPopup, setShowPopup]= useState(true);
 
     const handleShowBars = () => {
         setIsActive(!isActive);
@@ -48,7 +51,7 @@ const Header = () => {
     return (
         <div id='header'>
             <div className='logo cursor-pointer'>
-                <Link to = '/' >
+                <Link to='/' >
                     <img src="/image/premierleague.png" alt="" />
                     <span>Preimer League</span>
                 </Link>
@@ -61,8 +64,17 @@ const Header = () => {
                 ))}
             </ul>
 
-            <div className='search-header ml-3'>
-                <Link><button className='button'>Search</button></Link>
+
+            <div className='action-header flex flex-1 justify-center gap-4'>
+                {/* <div className='search ml-3'>
+                    <Link><button className='button'>Search</button></Link>
+                </div> */}
+                {/* <div className='login'>
+                    <Link to = "/login"><button className='button'>Sign In</button></Link>
+                </div>
+                <div className='register'>
+                    <Link to = "/register"><button className='button'>Sign Up</button></Link>
+                </div> */}
             </div>
 
             <i className={`fas fa-bars ${isActive === true ? 'text-blue-500' : ''} `} id="icon-menu-bars" onClick={handleShowBars}></i>
@@ -79,5 +91,4 @@ const Header = () => {
         </div>
     );
 };
-
 export default Header;
