@@ -119,7 +119,7 @@ const AddPlayer = () => {
             positionId: ""
         },
         validationSchema: Yup.object({
-            name: Yup.string().required("Required"),
+            name: Yup.string().trim().required("Required"),
             clubId: Yup.number().required("Required"),
             nationality: Yup.number().required("Required"),
             positionId: Yup.number().required("Required"),

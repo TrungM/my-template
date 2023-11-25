@@ -120,7 +120,7 @@ const AddNews = () => {
             isHome: 0 ,
         },
         validationSchema: Yup.object({
-            title: Yup.string().required('Required'),
+            title: Yup.string().trim().required('Required'),
             image: Yup.string().required('Required'),
 
         }),

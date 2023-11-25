@@ -30,6 +30,7 @@ const useActionListMatchFollowClub = (api, id, season) => {
         setLoading(true);
         const c_list = await GetListMatch();
         const s_items = await GetOne(code);
+        console.log(c_list);
 
         c_list.map((item, index) => {
             if (item.clubHome.clubName.id === s_items.clubid && item.status == null) {

@@ -77,7 +77,7 @@ const Season = () => {
                                             </div>
                                         </div>
                                         <div className="inner">
-                                            <h5>Champion</h5>
+                                            {/* <h5>Champion</h5> */}
                                         </div>
                                         <Link to={`/admin/${items.active === 1 ? 'clubs-active' : 'choose-clubs'}/${items.id}`} className="small-box-footer">More Detail info <i className="fas fa-arrow-circle-right"></i></Link>
                                     </div>

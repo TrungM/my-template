@@ -19,7 +19,8 @@ const CreateSeason = () => {
 
         },
         validationSchema: Yup.object({
-            seasonname: Yup.string().max(200, "Must be 200 chacracter or less").required("Required"),
+            seasonname: Yup.string().trim()
+                .max(200, "Must be 200 chacracter or less").required("Required"),
         }),
 
         onSubmit: (values, actions) => {

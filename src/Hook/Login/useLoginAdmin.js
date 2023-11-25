@@ -45,8 +45,8 @@ const useLoginAdmin = () => {
             password: "",
         },
         validationSchema: Yup.object({
-            email: Yup.string().required("Required"),
-            password: Yup.string().required("Required"),
+            email: Yup.string().trim().required("Required"),
+            password: Yup.string().trim().required("Required"),
         }),
 
 

@@ -76,7 +76,7 @@
     font-weight: 550 ;
     color: #37003c;
 }
-.form-abbreviation {
+.form-abbreviation-win {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,4 +91,39 @@
     letter-spacing: -.04rem;
     border-radius: 100%;
     background: #00db74;
+
+}
+.form-abbreviation-lose {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.2rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+    letter-spacing: -.04rem;
+    border-radius: 100%;
+    background: #e63946;
+
+}
+.form-abbreviation-draw {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.2rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+    letter-spacing: -.04rem;
+    border-radius: 100%;
+    background: #f2e9e4;
+
 }

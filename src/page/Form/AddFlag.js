@@ -112,7 +112,7 @@ const AddFlag = () => {
             image: "",
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('Required'),
+            name: Yup.string().trim().required('Required'),
             image: Yup.string().required('Required'),
         }),
 

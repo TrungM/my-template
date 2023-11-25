@@ -16,7 +16,7 @@ const AddReferee = () => {
             nationality: "",
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('Required'),
+            name: Yup.string().trim().required('Required'),
             nationality: Yup.string().required('Required'),
         }),
 

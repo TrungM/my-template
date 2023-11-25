@@ -108,11 +108,11 @@ const Table = () => {
                                                 <td>{items.points ?? 0}</td>
                                                 <td className="text-center w-52">
                                                     <ul className="flex items-center">
-                                                        <li className="form-abbreviation">W</li>
-                                                        <li className="form-abbreviation">W</li>
-                                                        <li className="form-abbreviation">W</li>
-                                                        <li className="form-abbreviation">W</li>
-                                                        <li className="form-abbreviation">W</li>
+                                                        <li className="form-abbreviation-win">W</li>
+                                                        <li className="form-abbreviation-lose">L</li>
+                                                        <li className="form-abbreviation-draw">D</li>
+                                                        <li className="form-abbreviation-win">W</li>
+                                                        <li className="form-abbreviation-win">W</li>
                                                     </ul>
                                                 </td>
                                                 <td>

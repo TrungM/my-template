@@ -113,7 +113,7 @@ const EditClubs = () => {
             stadiumid: "",
         },
         validationSchema: Yup.object({
-            name: Yup.string().max(200, "Must be 200 chacracter or less").required("Required"),
+            name: Yup.string().trim().max(200, "Must be 200 chacracter or less").required("Required"),
             image: Yup.string().required("Required"),
             stadiumid: Yup.string().required("Required")
         }),

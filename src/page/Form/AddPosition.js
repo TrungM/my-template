@@ -15,7 +15,7 @@ const AddPosition = () => {
             position: "",
         },
         validationSchema: Yup.object({
-            position: Yup.string().required('Required'),
+            position: Yup.string().trim().required('Required'),
         }),
 
         onSubmit: (values, actions) => {
